@@ -1,4 +1,5 @@
 const express = require('express');
+const track_delhivery = require('./delhivery');
 const app = express();
 const track_ekart = require('./ekart');
 app.get('/track',async(req,res)=>{
@@ -9,8 +10,12 @@ app.get('/track',async(req,res)=>{
         let result = await track_ekart(id);
         return res.json(result);
     }
+    else if(req.query.service=='Delhivery'){
+        let result = await track_delhivery(id);
+        return res.json(result);
+    }
+    else
     return res.json({'err':'Service not supported'});
 });
-
 
 app.listen(process.env.PORT|| 3000);

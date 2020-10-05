@@ -1,0 +1,1 @@
+await $('#heading1 > a > span.material-icons.down-icon').click()
