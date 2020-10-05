@@ -5,9 +5,9 @@ let baseurl = "https://dlv-web-api.delhivery.com/v2/track?waybillId=";
 
 
 
-async function track_delhivery(trackingId){
+async function track_delhivery(Id){
     
-    const url = baseurl+trackingId;
+    const url = baseurl+Id;
     try
     {
         let trackingData = []
@@ -17,6 +17,9 @@ async function track_delhivery(trackingId){
             uri :url ,
             json: true
         });
+        let trackingId= response.data[0].awb;
+        trackingData.push({trackingId});
+
     
          var len  =  response.data[0].scans.length;
          let status =  response.data[0].scans[len-1].status;
@@ -24,7 +27,8 @@ async function track_delhivery(trackingId){
          let place=response.data[0].scans[len-1].cityLocation;
          let date =  dateTime.slice(0,10);
          let time = dateTime.slice(11,16);
-            trackingData.push({
+         
+         trackingData.push({
                 
                 date,
                 time,

@@ -24,17 +24,17 @@ async function track_ekart(trackingId){
         });
         
         let $ = cheerio.load(response)
-        let trackingId = $("body > div.grey-bg.p-t-b-2 > div:nth-child(1) > div > div.col-sm-6.col-md-6.col-lg-8 > h4").text()
+        let trackingId = $("body > div.grey-bg.p-t-b-2 > div:nth-child(1) > div > div.col-sm-6.col-md-6.col-lg-8 > h4").text();
+        trackingId = trackingId.slice(13);
         trackingData.push({trackingId})
 
-      for (let i =2 ;i>=1;i++)
-        {
-            let date = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text();
-            let time = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td:nth-child(2)").text();
-            let place = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()
-            let status = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
-            if (date =='')
-            break;
+   
+     
+            let date = $("#no-more-tables > table > tbody > tr:nth-child(1) > td:nth-child(1)").text();
+            let time = $("#no-more-tables > table > tbody > tr:nth-child(1) > td:nth-child(2)").text();
+            let place = $("#no-more-tables > table > tbody > tr:nth-child(1) > td:nth-child(3)").text()
+            let status = $("#no-more-tables > table > tbody > tr:nth-child(1) > td:nth-child(4)").text();
+           
             trackingData.push({
                 
                 date,
@@ -43,7 +43,7 @@ async function track_ekart(trackingId){
                 status
             });
     
-        }   
+        
        return trackingData;
         
     }
