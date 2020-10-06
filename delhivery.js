@@ -17,17 +17,31 @@ async function track_delhivery(Id){
             uri :url ,
             json: true
         });
-        let trackingId= response.data[0].awb;
-        trackingData.push({trackingId});
-
-    
-         var len  =  response.data[0].scans.length;
-         let status =  response.data[0].scans[len-1].status;
-         let dateTime = response.data[0].scans[len-1].scanDateTime;
-         let place=response.data[0].scans[len-1].cityLocation;
-         let date =  dateTime.slice(0,10);
-         let time = dateTime.slice(11,16);
+       
+  let status;
+  let date; 
+  let time;
+  let place;
+  let trackingId;
+  var len;
+        if(response.data[0].receiverName == 'null'){
+            trackingId='';
+            date='';
+            time='';
+            status='';
+            place='';
+        }
+        else{
+         trackingId= response.data[0].awb;
          
+         len  =  response.data[0].scans.length;
+         status =  response.data[0].scans[len-1].status;
+         dateTime = response.data[0].scans[len-1].scanDateTime;
+         place=response.data[0].scans[len-1].cityLocation;
+         date =  dateTime.slice(0,10);
+         time = dateTime.slice(11,16);
+        }
+        trackingData.push({trackingId});
          trackingData.push({
                 
                 date,
