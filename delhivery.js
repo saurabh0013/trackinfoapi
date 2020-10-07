@@ -22,34 +22,37 @@ async function track_delhivery(Id){
   let date; 
   let time;
   let place;
-  let trackingId;
+  let comment;
   var len;
         if(response.data[0].receiverName == 'null'){
-            trackingId='';
+            comment='';
             date='';
             time='';
             status='';
             place='';
         }
         else{
-         trackingId= response.data[0].awb;
+         
          
          len  =  response.data[0].scans.length;
-         status =  response.data[0].scans[len-1].status;
-         dateTime = response.data[0].scans[len-1].scanDateTime;
-         place=response.data[0].scans[len-1].cityLocation;
+         for (let i =len-1; i>=0;i--){
+         status =  response.data[0].scans[i].status;
+         dateTime = response.data[0].scans[i].scanDateTime;
+         place=response.data[0].scans[i].scannedLocation;
          date =  dateTime.slice(0,10);
          time = dateTime.slice(11,16);
-        }
-        trackingData.push({trackingId});
+         comment =response.data[0].scans[i].instructions;
+        
          trackingData.push({
                 
                 date,
                 time,
                 status,
-                place
+                place,
+                comment
             });
-    
+        }
+    }
         
        return trackingData;
         
