@@ -2,7 +2,7 @@ const request =  require('request-promise');
 
 
 let baseurl = "https://dlv-web-api.delhivery.com/v2/track?waybillId=";
-
+let trackingData = [];
 
 
 async function track_delhivery(Id){
@@ -10,7 +10,7 @@ async function track_delhivery(Id){
     const url = baseurl+Id;
     try
     {
-        let trackingData = []
+        
   
     
         const response = await request({
@@ -24,22 +24,8 @@ async function track_delhivery(Id){
   let place;
   let comment;
   var len;
-        if(response.data[0].receiverName == 'null'){
-            comment='';
-            date='';
-            time='';
-            status='';
-            place='';
-            trackingData.push({
-                
-                date,
-                time,
-                status,
-                place,
-                comment
-            });
-        }
-        else{
+        if(response.data[0].receiverName != 'null'){
+           
          
          
          len  =  response.data[0].scans.length;
