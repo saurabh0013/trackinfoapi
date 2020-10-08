@@ -30,6 +30,14 @@ async function track_delhivery(Id){
             time='';
             status='';
             place='';
+            trackingData.push({
+                
+                date,
+                time,
+                status,
+                place,
+                comment
+            });
         }
         else{
          
