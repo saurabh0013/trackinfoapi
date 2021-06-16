@@ -1,4 +1,5 @@
 const express = require('express');
+const track_bluedart = require('./bluedart');
 const track_delhivery = require('./delhivery');
 const app = express();
 const track_ekart = require('./ekart');
@@ -12,6 +13,10 @@ app.get('/track',async(req,res)=>{
     }
     else if(req.query.service=='Delhivery'){
         let result = await track_delhivery(id);
+        return res.json(result);
+    }
+    else if(req.query.service=='Bluedart'){
+        let result = await track_bluedart(id);
         return res.json(result);
     }
     
