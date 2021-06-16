@@ -15,7 +15,7 @@ app.get('/track',async(req,res)=>{
         let result = await track_delhivery(id);
         return res.json(result);
     }
-    else if(req.query.service=='Bluedart'){
+    else if(req.query.service=='Blue Dart'){
         let result = await track_bluedart(id);
         return res.json(result);
     }
