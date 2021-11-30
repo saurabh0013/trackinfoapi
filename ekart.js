@@ -30,11 +30,11 @@ async function track_ekart(trackingId){
 
    
      for (let i = 1 ; ; i++){
-            let date = $("#col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text();
-            let time = $("#div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(2)").text();
-            let place = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()
-            let status = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
-            let comment = $("body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
+            let date = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td[data-title = Date]").text();
+            let time = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td[data-title = Time]").text();
+            let place = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td[data-title = Place]").text()
+            let status = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td[data-title = Status]").text();
+            let comment = $("#no-more-tables > table > tbody > tr:nth-child("+i+") > td[data-title = Status]").text();
            if (date =='')
            break;
             trackingData.push({
