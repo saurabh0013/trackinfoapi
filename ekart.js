@@ -30,11 +30,11 @@ async function track_ekart(trackingId){
 
    
      for (let i = 1 ; ; i++){
-            let date = $("body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text();
-            let time = $("body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(2)").text();
-            let place = $("body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()
-            let status = $("body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
-            let comment = $("body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
+            let date = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text();
+            let time = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(2)").text();
+            let place = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()
+            let status = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
+            let comment = $("#body > app-root > app-shipmenttracking > div > div > div.col-md-12.col-sm-12.tracking_details > table > tbody > tr:nth-child("+i+") > td:nth-child(4)").text();
            if (date =='')
            break;
             trackingData.push({
